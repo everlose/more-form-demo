@@ -1,0 +1,31 @@
+{
+  "name": "more-form-demo",
+  "description": "A Vue demo has a lot of form item",
+  "version": "1.0.0",
+  "author": "陈子云 <ever-lose@foxmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --port 8120 --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "dependencies": {
+    "element-ui": "^1.4.7",
+    "vue": "^2.4.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "vue-loader": "^13.0.5",
+    "less": "^2.3.1",
+    "url-loader": "^0.5.8",
+    "less-loader": "^2.2.3",
+    "vue-template-compiler": "^2.4.4",
+    "vue-style-loader": "^2.0.5",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
