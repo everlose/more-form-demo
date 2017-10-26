@@ -7,51 +7,11 @@
         <main class="ct-wrap">
             <div class="ct">
                 <div class="basic-info ct-form" v-for="(config, configIndex) in formConfig" :key="configIndex">
-                    <h3 class="form__title">{{config.title}}</h3>
-                    <el-form class="form-content" ref="form" label-width="150px">
-                        <el-form-item
-                            class="basic-form-item"
-                            v-for="(item, itemIndex) in config.formItems"
-                            :key="itemIndex"
-                            :prop="item.code"
-                            :class="item.singleRow ? 'single-row' : ''"
-                            :label="item.name"
-                            :required="item.required"
-                            :rules="item.rules">
-                            <el-radio-group
-                                v-if="item.type === 'radio'"
-                                v-model="formData[item.code]">
-                                <el-radio
-                                    v-for="(option, radioIndex) in formOptions[item.optionCode]"
-                                    :key="option.value"
-                                    :label="option.value"
-                                    :disabled="item.disabled">
-                                    {{ option.label }}
-                                </el-radio>
-                            </el-radio-group>
-                            <el-input
-                                v-else-if="item.type === 'input'"
-                                :class="{ longInput: item.isLongInput }"
-                                :placeholder="item.placeholder || '请输入'"
-                                v-model="formData[item.code]"
-                                :label="item.label"
-                                :disabled="item.disabled"
-                                :maxlength="item.maxLength">
-                            </el-input>
-                            <el-select
-                                v-else-if="item.type === 'select'"
-                                v-model="formData[item.code]"
-                                :disabled="item.disabled"
-                                :placeholder="item.placeholder || '请选择'">
-                                <el-option
-                                    v-for="(option, optionsIndex) in formOptions[item.optionCode]"
-                                    :key="option.value"
-                                    :label="option.label"
-                                    :value="option.value">
-                                </el-option>
-                            </el-select>
-                        </el-form-item>
-                    </el-form>
+                    <edit-form
+                        :config="config"
+                        :data="formData"
+                        :options="formOptions">
+                    </edit-form>
                 </div>
             </div>
         </main>
@@ -59,6 +19,7 @@
 </template>
 
 <script>
+import editForm from './edit-form.vue';
 import API from './api';
 
 export default {
@@ -79,6 +40,9 @@ export default {
             this.formConfig = d.formConfig;
             this.formData = d.formData;
         });
+    },
+    components: {
+        editForm
     }
 }
 
