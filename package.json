@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "element-ui": "^1.4.7",
-    "vue": "^2.4.4"
+    "vue": "2.5.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

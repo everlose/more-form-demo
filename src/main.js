@@ -5,7 +5,9 @@ import 'element-ui/lib/theme-default/index.css';
 
 Vue.use(ElementUI);
 
-new Vue({
+let vm = new Vue({
     el: '#app',
     render: h => h(App)
-})
+});
+
+console.log(vm);
